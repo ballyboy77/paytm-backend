@@ -2,9 +2,11 @@ require("dotenv").config()
 const mongoose = require("mongoose");
 
 
-let uri = "mongodb+srv://sushanslondhe1357:plmqaz%40123@cluster0.scyh4zm.mongodb.net/"
 
-mongoose.connect(uri)
+const url = process.env.url;
+mongoose.connect(url).then(()=>{
+    console.log("dB connected")
+});
 
 const userSchema = new mongoose.Schema({
     username:{
